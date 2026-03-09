@@ -15,11 +15,11 @@ seal: "Bronze"                          # Entre as aspas escreve Bronze, Prata o
 
 ## Relatório de Auditoria
 
-Consulte aqui a última atualização: [Relatório do {{ page.website }}](report.html)
+Consulte aqui a última atualização: [Relatório do Site Autárquico - Câmara de Alcobaça](report.html)
 
 <details>
   <summary>Histórico de atualizações</summary>
   <ul aria-label="lista de relatórios já efetuados">
-    <li><a href="ddmmaaaa_report.html">(dd/mm/aaaa). Relatório do {{ page.website }}</a></li>
+    <li><a href="ddmmaaaa_report.html">(09/03/2025). Relatório do Site Autárquio - Câmara de Alcobaça</a></li>
   </ul>
 </details>
