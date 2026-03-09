@@ -15,7 +15,7 @@ seal: "Bronze"                          # Entre as aspas escreve Bronze, Prata o
 
 ## Relatório de Auditoria
 
-Consulte aqui a última atualização: [Relatório do Site Autárquico - Câmara de Alcobaça](report.html)
+Consulte aqui a última atualização: [Relatório do Site Autárquico - Câmara de Alcobaça](09032026_relatorio_report_019.html)
 
 <details>
   <summary>Histórico de atualizações</summary>
