@@ -20,6 +20,6 @@ Consulte aqui a última atualização: [Relatório do Site Autárquico - Câmara
 <details>
   <summary>Histórico de atualizações</summary>
   <ul aria-label="lista de relatórios já efetuados">
-    <li><a href="09032026_relatorio_report_019.html">(09/03/2025). Relatório do Site Autárquico - Câmara de Alcobaça</a></li>
+    <li><a href="09032026_relatorio_report_019.html">(09/03/2026). Site Autárquico da Câmara Alcobaça</a></li>
   </ul>
 </details>
