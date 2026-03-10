@@ -86,7 +86,7 @@
       <ul>
         <li>Avaliação feita por: ARTE. I.P. - Núcleo de Experiência e Usabilidade</li>
         <li>Data de criação: 24/02/2026</li>
-        <li>Última atualização: 09/03/2026</li>
+        <li>Última atualização: 10/03/2026</li>
         <li>URL: <a href="https://www.cm-alcobaca.pt/" target="_blank" rel="noopener noreferrer">https://www.cm-alcobaca.pt/</a></li>
         <li>Propriedade: CM Alcobaça</li>
         <li>Candidatura: Bronze</li>
@@ -99,7 +99,7 @@
         <summary class="index-summary">Índice</summary>
         <ul>
           <li><a href="#introducao">Introdução</a></li>
-          
+          <li><a href="#declaracao">Declaração de Acessibilidade</a></li>
           <li><a href="#avaliacao-automatica">Avaliação automática</a></li>
           
           <li><a href="#avaliacao-manual">Avaliação manual</a>
@@ -148,7 +148,27 @@
           
         </tbody>
       </table>
-      <p><strong>Nota:</strong> para passar os requisitos do Selo é necessário alcançar um nível de conformidade superior ou igual a 75% em cada uma das 3 checklists.</p></section>
+      <p><strong>Nota:</strong> para passar os requisitos do Selo é necessário alcançar um nível de conformidade superior ou igual a 75% em cada uma das 3 checklists.</p><p>Verificámos também que a Declaração de Acessibilidade não se encontra corretamente afixada. Consulte o capítulo "Declaração de acessibilidade" para saber o que tem de corrigir.</p></section>
+
+    <section id="declaracao" class="mb-5 report-section">
+      <h2>Declaração de Acessibilidade</h2>
+      <p><span class="status-nok"><span class="sr-only">etiqueta: </span>NOK</span></p>
+      <p>De acordo com o <a href="https://www.acessibilidade.gov.pt/blogue/categoria-acessibilidade/dl-n-o-83-2018-acessibilidade-dos-sitios-web-e-das-aplicacoes-moveis/#n8" target="_blank" rel="noopener noreferrer">artigo 8º do DL n.º 83/2018</a>, todos os sítios web e todas as aplicações móveis têm de ostentar uma Declaração de Acessibilidade. A Declaração é o documento na qual a organização evidencia o trabalho levado a efeito para tornar os seus conteúdos e serviços digitais mais acessíveis, disponibilizando ainda contactos para ajuda adicional.</p>
+      <p>Lista de evidências recolhidas:</p>
+      <ul class="evidence-list">
+            <li class="evidence-item">
+              <p><span class="visually-hidden">evidência: </span><a href="https://github.com/unidade-acesso/report_019/issues/64" class="issue-link" target="_blank" rel="noopener noreferrer">issue #64</a> <strong>Declaração de acessibilidade - Atualizar os ficheiros das checklists</strong></p>
+              <div class="evidence-labels"><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-declaracao"><span class="sr-only">etiqueta: </span>dec a11y</span></div>
+              <div class="issue-content"><p>Após as correções, é necessário incluir as respectivas evidências em cada checklist enviada junto ao relatório (10 aspectos e de Conteúdo) e atualizar a Declaração de Acessibilidade com os respectivos ficheiros. </p>
+</div>
+            </li>
+            <li class="evidence-item">
+              <p><span class="visually-hidden">evidência: </span><a href="https://github.com/unidade-acesso/report_019/issues/63" class="issue-link" target="_blank" rel="noopener noreferrer">issue #63</a> <strong>Declaração de acessibilidade - Garantir formato machine-readable</strong></p>
+              <div class="evidence-labels"><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-declaracao"><span class="sr-only">etiqueta: </span>dec a11y</span></div>
+              <div class="issue-content"><p>Ao submeter novamente o ficheiro da Declaração ao Gerador (<a href="https://www.acessibilidade.gov.pt/gerador/">https://www.acessibilidade.gov.pt/gerador/</a>), este não reconhece a informação, nem preenche os campos automaticamente, o que é sinal de que o formato da Declaração está corrompido.</p>
+<p>Quando se termina o preenchimento da Declaração no Gerador, deve-se descarregar o código HTML e colá-lo numa página do site. Dessa forma, garante-se que a informação da Declaração é machine-readable.</p>
+</div>
+            </li></ul></section>
 
     <section id="avaliacao-automatica" class="mb-5 report-section">
       <h2>Avaliação automática</h2>
@@ -283,7 +303,7 @@
 <ul class="evidence-list">
 
               <li class="evidence-item">
-                <p><span class="visually-hidden">evidência: </span><a href="https://github.com/unidade-acesso/report_019/issues/8" class="issue-link" target="_blank" rel="noopener noreferrer">issue #8</a> <strong>R 1.2 - As subopções do menu em mobile não estão ligadas ao botão de menu hambúrguer</strong></p>
+                <p><span class="visually-hidden">evidência: </span><a href="https://github.com/unidade-acesso/report_019/issues/8" class="issue-link" target="_blank" rel="noopener noreferrer">issue #8</a> <strong>R 1.2 - As subopções do menu em mobile não estão associadas ao botão de menu hambúrguer</strong></p>
                 <div class="evidence-labels"><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk 10 web</span><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 1.2</span></div>
                 <div class="issue-content"><h3>Problema</h3>
 <p>Quando se navega com o teclado e com leitor de ecrã na versão mobile do site, o leitor de ecrã anuncia o botão do <strong>menu hambúrguer como estando fechado</strong>. No entanto, quando se avança para o elemento seguinte, são lidas as subopções do menu, mesmo sem este ter sido aberto.</p>
@@ -317,7 +337,7 @@
 
 
 
-<p><em>Figura 1 -</em> </p>
+<p><em>Figura 1 - Subopções do menu de primeiro nível</em> </p>
 <h3>Resolução</h3>
 <ul>
 <li>Tornar as setas a indicar a existência das subopções visíveis. No CSS devem rever o query<code> border: 0 !important</code> e <code>width:auto </code>aplicado a um query de <code>min-width: 1200px</code>.</li>
@@ -326,7 +346,7 @@
 
 
 
-<p><em>Figura 2 -</em> </p>
+<p><em>Figura 2 - CSS das setas do menu de navegação</em> </p>
 <ul>
 <li>As setas, quando visíveis, deve ter contrastar com o fundo bege, por isso não podem ser da cor branca. Atualmente, apenas existem setas brancas escondidas, que fazem contraste com o castanho do estilo do focus.</li>
 </ul>
@@ -334,7 +354,7 @@
 
 
 
-<p><em>Figura 3 -</em> </p>
+<p><em>Figura 3 - Subopções de menu de segundo nível</em> </p>
 <ul>
 <li>Deve ser possível abrir as subopções com o hover e/ou click do rato. Definir uma pseudo-class de<code> :hover</code>.</li>
 </ul>
@@ -853,13 +873,13 @@
       <div class="checklist-section">
         <h3 id="outras-violacoes">Outras violações</h3>
         <div class="requirement-content">
-<p><span class="status-ok"><span class="sr-only">etiqueta: </span>OK</span> (no entanto contém 1 melhoria que se recomenda efetuar)</p>
+<p><span class="status-nok"><span class="sr-only">etiqueta: </span>NOK</span></p>
 <p>Lista de evidências recolhidas:</p>
 <ul class="evidence-list">
 
               <li class="evidence-item">
                 <p><span class="visually-hidden">evidência: </span><a href="https://github.com/unidade-acesso/report_019/issues/13" class="issue-link" target="_blank" rel="noopener noreferrer">issue #13</a> <strong>Outras melhorias - O texto alternativo das imagens não deve ser repetido em texto visível</strong></p>
-                <div class="evidence-labels"><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-melhoria"><span class="sr-only">etiqueta: </span>melhoria</span></div>
+                <div class="evidence-labels"><span class="label-tag label-outras"><span class="sr-only">etiqueta: </span>outras violações</span><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span></div>
                 <div class="issue-content"><h3>Problema</h3>
 <p>Existem imagens com texto alternativo, o que por si é uma boa prática de acessibilidade a seguir. </p>
 <p>No entanto, esse texto alternativo das imagens também está presente visivelmente, resultando no leitor de ecrã a ler informação repetida e redundante, criando ruído na experiência. </p>
