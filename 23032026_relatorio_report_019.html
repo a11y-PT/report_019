@@ -122,7 +122,7 @@
                   <li><a href="#req-transacao-r-1.1">Requisito 1.1 - A sequência de tabulação entre campos segue a sequência de preenchimento</a></li><li><a href="#req-transacao-r-1.2">Requisito 1.2 - Os formulários com mais de 2 ecrãs de altura devem ser distribuídos por várias páginas</a></li><li><a href="#req-transacao-r-1.3">Requisito 1.3 - Os formulários com mais de uma página têm a sequência de passos ilustrada</a></li><li><a href="#req-transacao-r-2.2">Requisito 2.2 - É usada revelação progressiva em vez de campos inativos</a></li><li><a href="#req-transacao-r-4.3">Requisito 4.3 - As mensagens de erro são claramente identificadas junto aos campos de origem</a></li>
                 </ul>
               </li>
-              <li><a href="#outras-violacoes">Outras violações</a></li>
+              
             </ul>
           </li>
           
@@ -164,7 +164,8 @@
             <li class="evidence-item">
               <p><span class="visually-hidden">evidência: </span><a href="https://github.com/unidade-acesso/report_019/issues/83" class="issue-link" target="_blank" rel="noopener noreferrer">issue #83</a> <strong>Declaração de Acessibilidade - As avaliações das checklists (S/N/NA) não estão alinhadas com as avaliações da auditoria</strong></p>
               <div class="evidence-labels"><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-declaracao"><span class="sr-only">etiqueta: </span>dec a11y</span></div>
-              
+              <div class="issue-content"><p><strong>(<a href="https://github.com/unidade-acesso/report_019/issues/76">Ver thread deste issue para consultar os problemas por corrigir</a>)</strong></p>
+</div>
             </li>
             <li class="evidence-item">
               <p><span class="visually-hidden">evidência: </span><a href="https://github.com/unidade-acesso/report_019/issues/79" class="issue-link" target="_blank" rel="noopener noreferrer">issue #79</a> <strong>Declaração de Acessibilidade - Critérios com avaliação &quot;Sim&quot; sem evidências nas checklists de 10 aspectos, Conteúdo e Transação</strong></p>
@@ -760,49 +761,6 @@
 <h3>Resolução</h3>
 <p><strong>Devem garantir a associação programática das mensagens de erro:</strong><br>A associação da respetiva mensagem de erro é feita através do atributo <code>aria-describedby</code>, referenciando o ID do elemento que contém o erro. Desta forma, os leitores de ecrã conseguem anunciar automaticamente a mensagem quando o campo recebe foco.</p>
 <p><strong>(<a href="https://github.com/unidade-acesso/report_019/issues/76">Ver thread deste issue para consultar os restantes problemas por corrigir</a>)</strong></p>
-</div>
-              </li></ul>
-</div>
-
-      </div>
-      <div class="checklist-section">
-        <h3 id="outras-violacoes">Outras violações</h3>
-        <div class="requirement-content">
-<p><span class="status-nok"><span class="sr-only">etiqueta: </span>NOK</span></p>
-<p>Lista de evidências recolhidas:</p>
-<ul class="evidence-list">
-
-              <li class="evidence-item">
-                <p><span class="visually-hidden">evidência: </span><a href="https://github.com/unidade-acesso/report_019/issues/13" class="issue-link" target="_blank" rel="noopener noreferrer">issue #13</a> <strong>Outras melhorias - O texto alternativo das imagens não deve ser repetido em texto visível</strong></p>
-                <div class="evidence-labels"><span class="label-tag label-outras"><span class="sr-only">etiqueta: </span>outras violações</span><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span></div>
-                <div class="issue-content"><h3>Problema</h3>
-<p>Existem imagens com texto alternativo, o que por si é uma boa prática de acessibilidade a seguir. </p>
-<p>No entanto, esse texto alternativo das imagens também está presente visivelmente, resultando no leitor de ecrã a ler informação repetida e redundante, criando ruído na experiência. </p>
-<img src="https://github.com/user-attachments/assets/fed071c4-b273-4773-b03d-663aeb4e50bf" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
-
-
-
-<p><em>Figura 1 - Alcobaça e Vestiaria é o texto visível da imagem, mas também o texto alternativo no alt.</em>  </p>
-<p>O mesmo se aplica ao ícone da bandeira do país na combobox da mudança da língua, que tem o texto alternativo igual ao texto visível </p>
-<img src="https://github.com/user-attachments/assets/699afff6-3ec3-4635-bb37-d8aa5632d319" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
-
-
-
-<p><em>Figura 2 - Texto alternativo do ícone das bandeiras é igual ao texto visível da opção.</em> </p>
-<img src="https://github.com/user-attachments/assets/4b6aab81-72aa-479c-a399-f6ad1dd713f4" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
-
-
-
-<p><em>Figura 3 - Texto alternativo é alt="generic image", o que está errado. Mas também não deve repetir o nome da freguesia.</em> </p>
-<img src="https://github.com/user-attachments/assets/5f455276-ce72-484d-80b8-2dab79286885" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
-
-
-
-<p><em>Figura 4 - Texto alternativo da imagem é "Marcas Identitárias, igual ao texto por baixo da imagem.</em> </p>
-<h3>Resolução</h3>
-<p>Devem <strong>rever os atributos alts para que fiquem nulos, ou seja, <code>alt=""</code></strong>. Desta forma, o leitor de ecrã irá ignorar a imagem decorativa. Neste caso, a imagem é considerada decorativa porque não adiciona informação relevante, uma vez que já é transmitida pelo texto visível. </p>
-<p><strong>Nota: Existem muitas páginas com imagens decorativas com texto alternativo igual ao texto visível, sendo uma prática geral no site.</strong> </p>
-<p>Podem encontrar algumas dessas imagens decorativas a rever nas seguintes páginas, havendo outras a rever:<br><a href="https://www.cm-alcobaca.pt">https://www.cm-alcobaca.pt</a><br><a href="https://www.cm-alcobaca.pt/49542/conhecer">https://www.cm-alcobaca.pt/49542/conhecer</a><br><a href="https://www.cm-alcobaca.pt/49543/area-do-municipe">https://www.cm-alcobaca.pt/49543/area-do-municipe</a><br><a href="https://www.cm-alcobaca.pt/49544/municipio">https://www.cm-alcobaca.pt/49544/municipio</a><br><a href="https://www.cm-alcobaca.pt/49547/camara-municipal">https://www.cm-alcobaca.pt/49547/camara-municipal</a><br><a href="https://www.cm-alcobaca.pt/49548/assembleia-municipal">https://www.cm-alcobaca.pt/49548/assembleia-municipal</a><br><a href="https://www.cm-alcobaca.pt/49549/freguesias">https://www.cm-alcobaca.pt/49549/freguesias</a></p>
 </div>
               </li></ul>
 </div>
