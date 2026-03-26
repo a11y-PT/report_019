@@ -4,7 +4,7 @@ date: "24/02/2026"                    # Entre as aspas escreve a data de criaç�
 uri: "https://www.cm-alcobaca.pt/"   # Entre as aspas escreve o domínio do website
 owner: "CM Alcobaça"         # Entre as aspas escrever o nome do owner do website
 seal: "Prata"                          # Entre as aspas escreve Bronze, Prata ou Ouro
-Validade do Selo atribuído: "27-03-2026 a 27-03-2027"    # Entre as aspas escreve o período de 1 ano de validade do Selo
+validity: "27-03-2026 a 27-03-2027"    # Entre as aspas escreve o período de 1 ano de validade do Selo
 ---
 
 # Sítio Autárquico - Câmara Municipal de Alcobaça
@@ -13,6 +13,7 @@ Validade do Selo atribuído: "27-03-2026 a 27-03-2027"    # Entre as aspas escre
 - URL: https://www.cm-alcobaca.pt/
 - Propriedade: CM Alcobaça
 - Candidatura: Prata
+- Validade do Selo: 27-03-2026 a 27-03-2027
 
 ## Relatório de Auditoria
 
