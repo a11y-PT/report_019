@@ -5,6 +5,7 @@ uri: "https://www.cm-alcobaca.pt/"   # Entre as aspas escreve o domínio do webs
 owner: "CM Alcobaça"         # Entre as aspas escrever o nome do owner do website
 seal: "Prata"                          # Entre as aspas escreve Bronze, Prata ou Ouro
 validity: "27-03-2026 a 27-03-2027"    # Entre as aspas escreve o período de 1 ano de validade do Selo
+status: "Concluído"      # Entre as aspas escreve o status do relatório
 ---
 
 # Sítio Autárquico - Câmara Municipal de Alcobaça
