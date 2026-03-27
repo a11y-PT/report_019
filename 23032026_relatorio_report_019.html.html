@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Relatório Sítio Autárquico - Câmara Municipal de Alcobaça</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    .skip-link { position: absolute; top: -40px; left: 0; background: #000; color: white; padding: 8px; z-index: 100; transition: top 0.3s ease; }
+    .skip-link:focus { top: 0; }
+    .visually-hidden-focusable:not(:focus):not(:focus-within) { position: absolute !important; width: 1px !important; height: 1px !important; padding: 0 !important; margin: -1px !important; overflow: hidden !important; clip: rect(0,0,0,0) !important; white-space: nowrap !important; border: 0 !important; }
+    body { 
+      background-color: #ffffff; 
+      padding-top: 2rem; 
+      padding-bottom: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+    .container { 
+      max-width: 900px;
+      width: 100%;
+      background-color: transparent; 
+      padding-top: 1rem;
+      padding-bottom: 2rem;
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+    .report-footer {
+      width: 100%;
+      align-self: stretch;
+      background-color: #ffffff;
+      color: #4a5568;
+      text-align: center;
+      padding: 1.25rem 1rem;
+      font-size: 0.8rem;
+      border-top: 1px solid #e0e0e0;
+      margin-top: auto;
+    }
+    .report-footer p { margin: 0.2rem 0; }
+    h1 { font-size: 1.8rem; margin-bottom: 1.5rem; }
+    .status-ok { color: #ffffff; background-color: #0E8A16; padding: 0.25rem 0.5rem; border-radius: 50px; font-weight: 500; display: inline-block; }
+    .status-nok { color: #ffffff; background-color: #B60205; padding: 0.25rem 0.5rem; border-radius: 50px; font-weight: 500; display: inline-block; }
+    .status-melhoria { color: #856404; background-color: #fff3cd; padding: 0.25rem 0.5rem; border-radius: 50px; font-weight: 500; display: inline-block; }
+    .status-na { color: #000; background-color: #C2E0C6; padding: 0.25rem 0.5rem; border-radius: 50px; font-weight: 500; display: inline-block; }
+    .requirement-title { margin-top: 2rem; }
+    .requirement-title h4, .requirement-title h3 { color: #000; }
+    .mb-4 ul li a { color: #1e3a8a; text-decoration: none; }
+    .mb-4 ul li a:hover { color: #1e40af; text-decoration: underline; }
+    summary.index-summary { display: list-item; font-weight: 700; font-size: 1.25rem !important; color: #000; cursor: pointer; }
+    summary.index-summary:focus { outline: 3px solid #333399; outline-offset: 2px; }
+    .evidence-list { list-style-type: disc; padding-left: 1.5rem; margin: 1rem 0; }
+    .evidence-item { margin: 0.5rem 0; padding: 0.5rem 0.5rem 0.5rem 1.5rem; border-radius: 4px; background-color: #f6f6f6; color: #000; list-style: none; margin-left: -1.5rem; }
+    .evidence-item p { margin: 1.5rem 0 1rem 0; }
+    .evidence-labels { font-size: 0.85em; display: inline-flex; flex-wrap: wrap; gap: 0.25rem; }
+    .label-tag { padding: 0.125rem 0.375rem; border-radius: 1rem; font-size: 0.75rem; font-weight: 500; color: white; display: inline-block; margin-right: 0.25rem; }
+    .label-checklist { background-color: #5319E7; }
+    .label-auto { background-color: #5319E7; }
+    .label-declaracao { background-color: #5319E7; }
+    .label-outras { background-color: #5319E7; }
+    .label-melhoria { background-color: #FBCA04; color: #000; }
+    .label-na { background-color: #C2E0C6; color: #000; }
+    .label-ok { background-color: #0E8A16; }
+    .label-nok { background-color: #B60205; }
+    .label-requisito { background-color: #0052CC; }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+    .report-section { border-bottom: 3px solid #000000; padding-bottom: 2rem; margin-bottom: 2rem; }
+    .report-section:last-of-type { border-bottom: none; }
+    .checklist-section { border-bottom: 3px solid #000000; padding-bottom: 1.5rem; margin-bottom: 1.5rem; }
+    .avaliacao-manual-section { padding-bottom: 1.5rem; margin-bottom: 1.5rem; }
+    .checklist-section:last-of-type { border-bottom: none; }
+    .issue-link { color: #1e3a8a; text-decoration: none; }
+    .issue-link:hover { text-decoration: underline; color: #1e40af; }
+    table.table caption { caption-side: top; text-align: left; padding-bottom: 0.5rem; font-weight: 600; color: #000; }
+  </style>
+</head>
+<body>
+  <a href="#conteudo-principal" class="skip-link visually-hidden-focusable">Saltar para o conteúdo principal</a>
+  <div class="container mt-4" id="conteudo-principal">
+    <header class="mb-4">
+      <h1>Relatório Avaliação da Candidatura da Sítio Autárquico - Câmara Municipal de Alcobaça</h1>
+    </header>
+
+    <section class="mb-4">
+      <ul>
+        <li>Avaliação feita por: ARTE. I.P. - Núcleo de Experiência e Usabilidade</li>
+        <li>Data de criação: 24/02/2026</li>
+        <li>Última atualização: 27/03/2026</li>
+        <li>URL: <a href="https://www.cm-alcobaca.pt/" target="_blank" rel="noopener noreferrer">https://www.cm-alcobaca.pt/</a></li>
+        <li>Propriedade: CM Alcobaça</li>
+        <li>Candidatura: Prata</li>
+        <li>Progresso (% de requisitos auditados): 100%</li>
+      </ul>
+    </section>
+
+    <nav class="mb-4 report-section" aria-label="Índice">
+      <details open>
+        <summary class="index-summary">Índice</summary>
+        <ul>
+          <li><a href="#introducao">Introdução</a></li>
+          <li><a href="#declaracao">Declaração de Acessibilidade</a></li>
+          <li><a href="#avaliacao-automatica">Avaliação automática</a></li>
+          
+          <li><a href="#avaliacao-manual">Avaliação manual</a>
+            <ul class="indent-list">
+              
+              <li><a href="#checklist-10-aspetos">Checklist 10 aspetos</a>
+                <ul class="indent-list">
+                  <li><a href="#req-chk10-r-1.1">Requisito 1.1 - O menu de navegação deve estar estruturado como uma lista de opções</a></li><li><a href="#req-chk10-r-3.1">Requisito 3.1 - As células que constituem os cabeçalhos da tabela estão marcadas com o elemento th</a></li><li><a href="#req-chk10-r-3.2">Requisito 3.2 - A legenda da tabela está marcada com o elemento caption</a></li><li><a href="#req-chk10-r-4.1">Requisito 4.1 - Ao clicar com o rato na etiqueta, o cursor surge no respetivo campo de edição</a></li><li><a href="#req-chk10-r-5.2">Requisito 5.2 - O gráfico é acompanhado de uma descrição longa</a></li><li><a href="#req-chk10-r-7.1">Requisito 7.1 - Deve ser possível ativar os botões de controlo do leitor quer com o rato quer com o teclado</a></li><li><a href="#req-chk10-r-7.2">Requisito 7.2 - O vídeo ou o áudio deve conter preferencialmente legendas fechadas sincronizadas. Caso não seja possível, no mínimo, deve disponibilizar-se uma transcrição textual</a></li><li><a href="#req-chk10-r-8.4">Requisito 8.4 - Quando se retira a CSS, a informação relevante permanece visível</a></li><li><a href="#req-chk10-r-10.1">Requisito 10.1 - Nos ficheiros PDF é possível, no mínimo, extrair o conteúdo textual para formato TXT</a></li>
+                </ul>
+              </li>
+              
+              <li><a href="#checklist-conteudo">Checklist Conteúdo</a>
+                <ul class="indent-list">
+                  <li><a href="#req-conteudo-r-1.1">Requisito 1.1 - O sítio Web apresenta um resumo breve do seu propósito, visível sem se fazer scroll</a></li><li><a href="#req-conteudo-r-1.2">Requisito 1.2 - Os termos mais complexos têm uma definição agregada</a></li><li><a href="#req-conteudo-r-4.1">Requisito 4.1 - Os documentos longos têm um índice no topo com hiperligações internas para o mesmo</a></li>
+                </ul>
+              </li>
+              
+              <li><a href="#checklist-transacao">Checklist Transação</a>
+                <ul class="indent-list">
+                  <li><a href="#req-transacao-r-1.1">Requisito 1.1 - A sequência de tabulação entre campos segue a sequência de preenchimento</a></li><li><a href="#req-transacao-r-1.2">Requisito 1.2 - Os formulários com mais de 2 ecrãs de altura devem ser distribuídos por várias páginas</a></li><li><a href="#req-transacao-r-1.3">Requisito 1.3 - Os formulários com mais de uma página têm a sequência de passos ilustrada</a></li><li><a href="#req-transacao-r-2.2">Requisito 2.2 - É usada revelação progressiva em vez de campos inativos</a></li><li><a href="#req-transacao-r-4.2">Requisito 4.2 - As ações destrutivas nunca devem ser permanentes; deve ser sempre possível desfazer a operação</a></li>
+                </ul>
+              </li>
+              
+            </ul>
+          </li>
+          
+          <li><a href="#etiquetas">Significado das etiquetas utilizadas</a></li>
+        </ul>
+      </details>
+    </nav>
+
+    <section id="introducao" class="mb-5 report-section">
+      <h2>Introdução</h2>
+      <p>O website <a href="https://www.cm-alcobaca.pt/" target="_blank">https://www.cm-alcobaca.pt/</a> <strong><span class="status-ok"><span class="sr-only">etiqueta: </span>passa</span></strong> nos requisitos mínimos do Selo de Usabilidade e Acessibilidade.</p>
+
+      <table class="table table-bordered">
+        <caption>Estado das avaliações efetuadas</caption>
+        <thead><tr><th>Tipo de avaliação</th><th>Estado</th></tr></thead>
+        <tbody>
+          <tr><td>Avaliação Automática</td><td><span class="status-ok"><span class="sr-only">etiqueta: </span>OK</span></td></tr>
+          <tr><td>Avaliação Manual</td><td><span class="status-ok"><span class="sr-only">etiqueta: </span>OK</span></td></tr>
+        </tbody>
+      </table>
+      <p>Das avaliações manuais efetuadas obtiveram-se os resultados que se sintetizam na tabela seguinte.</p>
+      <table class="table table-bordered">
+        <caption>Níveis de conformidade das avaliações manuais</caption>
+        <thead><tr><th>Checklist</th><th>Conformidade alcançada</th><th>Resultado</th></tr></thead>
+        <tbody>
+          <tr><td>10 aspetos</td><td>81.8% (18/22)</td><td><span class="status-ok"><span class="sr-only">etiqueta: </span>Passa</span></td></tr>
+          <tr><td>Conteúdo</td><td>87.5% (14/16)</td><td><span class="status-ok"><span class="sr-only">etiqueta: </span>Passa</span></td></tr>
+          <tr><td>Transação</td><td>88.9% (8/9)</td><td><span class="status-ok"><span class="sr-only">etiqueta: </span>Passa</span></td></tr>
+        </tbody>
+      </table>
+      <p><strong>Nota:</strong> para passar os requisitos do Selo é necessário alcançar um nível de conformidade superior ou igual a 75% em cada uma das 3 checklists.</p></section>
+
+    <section id="declaracao" class="mb-5 report-section">
+      <h2>Declaração de Acessibilidade</h2>
+      <p><span class="status-ok"><span class="sr-only">etiqueta: </span>OK</span></p>
+      <p>De acordo com o <a href="https://www.acessibilidade.gov.pt/blogue/categoria-acessibilidade/dl-n-o-83-2018-acessibilidade-dos-sitios-web-e-das-aplicacoes-moveis/#n8" target="_blank" rel="noopener noreferrer">artigo 8º do DL n.º 83/2018</a>, todos os sítios web e todas as aplicações móveis têm de ostentar uma Declaração de Acessibilidade. A Declaração é o documento na qual a organização evidencia o trabalho levado a efeito para tornar os seus conteúdos e serviços digitais mais acessíveis, disponibilizando ainda contactos para ajuda adicional.</p>
+      <p>Lista de evidências recolhidas:</p>
+      <ul class="evidence-list">
+            <li class="evidence-item">
+              <p><span class="visually-hidden">evidência: </span><a href="https://github.com/unidade-acesso/report_019/issues/83" class="issue-link" target="_blank" rel="noopener noreferrer">issue #83</a> <strong>Declaração de Acessibilidade - As avaliações das checklists (S/N/NA) não estão alinhadas com as avaliações da auditoria</strong></p>
+              <div class="evidence-labels"><span class="label-tag label-ok"><span class="sr-only">etiqueta: </span>OK</span><span class="label-tag label-declaracao"><span class="sr-only">etiqueta: </span>dec a11y</span></div>
+              <div class="issue-content"><p><strong>(<a href="https://github.com/unidade-acesso/report_019/issues/76">Ver thread deste issue para consultar os problemas por corrigir</a>)</strong></p>
+</div>
+            </li>
+            <li class="evidence-item">
+              <p><span class="visually-hidden">evidência: </span><a href="https://github.com/unidade-acesso/report_019/issues/79" class="issue-link" target="_blank" rel="noopener noreferrer">issue #79</a> <strong>Declaração de Acessibilidade - Critérios com avaliação &quot;Sim&quot; sem evidências nas checklists de 10 aspectos, Conteúdo e Transação</strong></p>
+              <div class="evidence-labels"><span class="label-tag label-ok"><span class="sr-only">etiqueta: </span>OK</span><span class="label-tag label-declaracao"><span class="sr-only">etiqueta: </span>dec a11y</span></div>
+              <div class="issue-content"><p>Existem critérios avaliados como SIM sem evidências. Devem apresentar sempre alguma evidência em imagem e notas de que estão a cumprir  ou a chumbar o critério antes de receberem o Selo.  </p>
+<h3><strong>10 aspetos</strong></h3>
+<p><strong>- 4.1 Ao clicar com o rato na etiqueta, o cursor surge no respetivo campo de edição</strong></p>
+<img src="https://github.com/user-attachments/assets/3cc0d2e3-2480-46d5-b258-bc1ee01b4b4f" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+
+<ul>
+<li><strong>5.1 A imagem ou gráfico tem um equivalente alternativo em texto curto e correto</strong></li>
+</ul>
+<img src="https://github.com/user-attachments/assets/1d05585a-31e5-489b-a280-d2e9ef97a16d" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+
+<ul>
+<li><strong>8.2 Quando se retira a CSS, a informação aparece numa ordem lógica</strong></li>
+<li></li>
+</ul>
+<img src="https://github.com/user-attachments/assets/b5644dea-f65e-428a-8337-d0a11e359796" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+
+<p>E mais outros critérios: </p>
+<ul>
+<li>8.3 Quando se retira a CSS, deve ser possível reconhecer a semântica dos diversos elementos</li>
+<li>8.4 Quando se retira a CSS, a informação relevante permanece visível</li>
+<li>etc.</li>
+</ul>
+<p>Pedimos que revejam esses pontos, assim como a avaliação (SIM, NAO, N/A) que atribuímos aos critérios, antes de voltarem a submeter as 3 checklists. </p>
+</div>
+            </li>
+            <li class="evidence-item">
+              <p><span class="visually-hidden">evidência: </span><a href="https://github.com/unidade-acesso/report_019/issues/78" class="issue-link" target="_blank" rel="noopener noreferrer">issue #78</a> <strong>Declaração de Acessibilidade - Rever as evidências da checklist de Transação</strong></p>
+              <div class="evidence-labels"><span class="label-tag label-ok"><span class="sr-only">etiqueta: </span>OK</span><span class="label-tag label-declaracao"><span class="sr-only">etiqueta: </span>dec a11y</span></div>
+              <div class="issue-content"><p>Considerando que a checklist de Transação passa a ser necessária para a candidatura ao Selo Prata, devem rever as evidências da checklist de acordo com este relatório. </p>
+</div>
+            </li>
+            <li class="evidence-item">
+              <p><span class="visually-hidden">evidência: </span><a href="https://github.com/unidade-acesso/report_019/issues/64" class="issue-link" target="_blank" rel="noopener noreferrer">issue #64</a> <strong>Declaração de acessibilidade - Atualizar os ficheiros das checklists</strong></p>
+              <div class="evidence-labels"><span class="label-tag label-ok"><span class="sr-only">etiqueta: </span>OK</span><span class="label-tag label-declaracao"><span class="sr-only">etiqueta: </span>dec a11y</span></div>
+              <div class="issue-content"><p>Após as correções, é necessário incluir as respectivas evidências em cada checklist enviada junto ao relatório (10 aspectos e de Conteúdo) e atualizar a Declaração de Acessibilidade com os respectivos ficheiros. </p>
+</div>
+            </li>
+            <li class="evidence-item">
+              <p><span class="visually-hidden">evidência: </span><a href="https://github.com/unidade-acesso/report_019/issues/63" class="issue-link" target="_blank" rel="noopener noreferrer">issue #63</a> <strong>Declaração de acessibilidade - Garantir formato machine-readable</strong></p>
+              <div class="evidence-labels"><span class="label-tag label-ok"><span class="sr-only">etiqueta: </span>OK</span><span class="label-tag label-declaracao"><span class="sr-only">etiqueta: </span>dec a11y</span></div>
+              <div class="issue-content"><p>Ao submeter novamente o ficheiro da Declaração ao Gerador (<a href="https://www.acessibilidade.gov.pt/gerador/">https://www.acessibilidade.gov.pt/gerador/</a>), este não reconhece a informação, nem preenche os campos automaticamente, o que é sinal de que o formato da Declaração está corrompido.</p>
+<p>Quando se termina o preenchimento da Declaração no Gerador, deve-se descarregar o código HTML e colá-lo numa página do site. Dessa forma, garante-se que a informação da Declaração é machine-readable.</p>
+</div>
+            </li></ul></section>
+
+    <section id="avaliacao-automatica" class="mb-5 report-section">
+      <h2>Avaliação automática</h2>
+      <p><span class="status-ok"><span class="sr-only">etiqueta: </span>OK</span></p>
+      <p>Para a produção das evidências do presente capítulo, foram utilizadas ferramentas automatizadas de avaliação de requisitos de acessibilidade de acordo com a norma WCAG 2.1 'AA'. A amostra em análise pelas ferramentas é composta pela Homepage mais todas as páginas diretamente hiperligadas por ela, pertencentes ao domínio.</p>
+      
+      <p>Lista de evidências recolhidas:</p>
+      <ul class="evidence-list">
+            <li class="evidence-item">
+              <p><span class="visually-hidden">evidência: </span><a href="https://github.com/unidade-acesso/report_019/issues/82" class="issue-link" target="_blank" rel="noopener noreferrer">issue #82</a> <strong>Avaliação automática - O link &quot;Saltar para o conteúdo principal&quot; tem um tabindex superior a 0</strong></p>
+              <div class="evidence-labels"><span class="label-tag label-auto"><span class="sr-only">etiqueta: </span>av auto</span><span class="label-tag label-melhoria"><span class="sr-only">etiqueta: </span>melhoria</span></div>
+              <div class="issue-content"><h3><strong>Problema</strong></h3>
+<p>Definir o atributo tabindex com um valor maior que zero pode criar uma ordem de navegação imprevisível, o que pode desorientar os utilizadores e dar a sensação de que alguns elementos estão a ser ignorados.</p>
+<p><code>&lt;a id="goToContent" tabindex="1" aria-label="" href="#mainContent" target="_self"&gt;Saltar para o conteúdo principal da página&lt;/a&gt;</code></p>
+<img src="https://github.com/user-attachments/assets/5b1aa776-606e-4004-b4eb-98dd65ab446d" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+
+<p>Este problema foi detectado na avaliação automática com Rocket Validator. </p>
+<h3><strong>Solução</strong></h3>
+<p>Para corrigir este problema, recomenda-se alterar o valor para tabindex="0", permitindo que o elemento siga a ordem natural do documento. </p>
+<p>Em alternativa, pode remover o tabindex="0" do link e o tabindex="-1" do main e reorganizar o HTML para garantir a sequência correta dos elementos.</p>
+</div>
+            </li>
+            <li class="evidence-item">
+              <p><span class="visually-hidden">evidência: </span><a href="https://github.com/unidade-acesso/report_019/issues/81" class="issue-link" target="_blank" rel="noopener noreferrer">issue #81</a> <strong>Avaliação automática - A modal dos cookies com atributo role=&quot;dialog&quot; não tem nome acessível</strong></p>
+              <div class="evidence-labels"><span class="label-tag label-auto"><span class="sr-only">etiqueta: </span>av auto</span><span class="label-tag label-melhoria"><span class="sr-only">etiqueta: </span>melhoria</span></div>
+              <div class="issue-content"><h3><strong>Problema</strong></h3>
+<p>Elementos com o atributo role="dialog" ou role="alertdialog" devem ter um nome acessível para que utilizadores de leitores de ecrã possam compreender o propósito do diálogo quando este é aberto. </p>
+<p>A dialog dos cookies não tem um nome acessível: </p>
+<p><code>&lt;div class="modal fade show" aria-modal="true" role="dialog" tabindex="-1" style="display: block;"&gt;</code></p>
+<img src="https://github.com/user-attachments/assets/c1227913-a9d6-4d32-9780-086543abcdd0" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+
+<p>Este problema foi identificado na avaliação automática do Rocket Validator. </p>
+<h3><strong>Resolução</strong></h3>
+<p>Para corrigir isto, é adicionar um atributo aria-label com um nome descritivo, ou aria-labelledby para referenciar um título visível ou um elemento de texto dentro da diolog (ex: Visão geral da privacidade).</p>
+</div>
+            </li></ul></section>
+
+    <section id="avaliacao-manual" class="mb-5 mt-5 avaliacao-manual-section">
+      <h2>Avaliação manual</h2>
+      <p><span class="status-ok"><span class="sr-only">etiqueta: </span>OK</span></p>
+      <p>A avaliação manual é feita por inspeção perícial dos diversos requisitos constantes da:</p>
+      <ul>
+        <li>checklist <strong>10 aspetos críticos de acessibilidade funcional</strong>;</li>
+        <li>checklist <strong>Conteúdo</strong> (se candidato a Selo Bronze);</li>
+        <li>checklist <strong>Transação</strong> (se candidato a Selo Prata).</li>
+      </ul>
+      <p>Sempre que os auditores localizam uma falha grave de um requisito de acessibilidade que, embora não faça parte do esquema de requisitos do Selo, se enquadre no âmbito das violações das WCAG 2.1 'AA' do W3C, tal referência é anotada em "Outras violações" do presente capítulo. Apesar destas violações não se apresentarem com carácter vinculativo no esquema de requisitos do Selo, recomenda-se que as mesmas sejam corrigidas.</p>
+      <div class="checklist-section">
+        <h3 id="checklist-10-aspetos">Checklist 10 aspetos</h3>
+        <p><span class="status-nok"><span class="sr-only">etiqueta: </span>NOK</span></p>
+        
+      <p><strong>Nível de conformidade:</strong></p>
+        <ul>
+          <li><strong>Checklist 10 aspetos</strong>: 81.8% (18/22)
+            <ul>
+              <li>Requisitos avaliados: 27 (5 N/A excluídos, 22 aplicáveis)</li>
+              <li>Requisitos OK: 18</li>
+              <li>Requisitos NOK: 4</li>
+              <li>Requisitos N/A: 5</li>
+            </ul>
+          </li>
+        </ul>
+    
+        <h4 class="requirement-title" id="req-chk10-r-1.1">Requisito 1.1 - O menu de navegação deve estar estruturado como uma lista de opções</h4>
+<div class="requirement-content">
+<p><span class="status-nok"><span class="sr-only">etiqueta: </span>NOK</span></p>
+<p>Lista de evidências recolhidas:</p>
+<ul class="evidence-list">
+
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><a href="https://github.com/unidade-acesso/report_019/issues/9" class="issue-link" target="_blank" rel="noopener noreferrer">issue #9</a> <strong>Outras melhorias - O componente de paginação não está estruturado como &lt;nav&gt; e não tem aria-label</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 1.1</span><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk 10 web</span><span class="label-tag label-melhoria"><span class="sr-only">etiqueta: </span>melhoria</span></div>
+                <div class="issue-content"><h3>Problema</h3>
+<p>O elemento de paginação em páginas como<a href="https://www.cm-alcobaca.pt/50064/marcas-identitarias"> Marcas Identitárias</a> ou <a href="https://portaldomunicipe.cm-alcobaca.pt/avisos?lang=pt&amp;device=1">Avisos</a> é anunciado pelo leitor de ecrã apenas como “lista de 7 opções”, sendo também indicada a posição de cada link dentro da lista.</p>
+<img src="https://github.com/user-attachments/assets/924fb2c0-e330-495d-b907-c21ac4a7f89b" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+
+<p><em>Figura 1 - Paginação na página <a href="https://www.cm-alcobaca.pt/50064/marcas-identitarias"> Marcas Identitárias</a>.</em></p>
+<p>No entanto, não é fornecido pelo leitor de ecrã qualquer contexto adicional que identifique este componente como um elemento de navegação, o que dificulta a compreensão da sua finalidade. </p>
+<h3>Recomendação</h3>
+<p>Rever o elemento de página em todas as páginas: </p>
+<ul>
+<li><p>Estruturar o elemento de paginação como <code>&lt;nav&gt;</code>. </p>
+</li>
+<li><p>Adicionar um aria-label para distinguir esse <code>&lt;nav&gt;</code> do <code>&lt;nav&gt;</code> principal. Por exemplo: <code>&lt;nav aria-label="Paginação"</code></p>
+</li>
+</ul>
+</div>
+              </li>
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><a href="https://github.com/unidade-acesso/report_019/issues/4" class="issue-link" target="_blank" rel="noopener noreferrer">issue #4</a> <strong>Subopções do menu de mobile não estão estruturadas como listas</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 1.1</span><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk 10 web</span><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span></div>
+                <div class="issue-content"><h3>Problema</h3>
+<ul>
+<li>Os elementos dos menus e submenus deverão estar todos estruturados como lista, recorrendo aos elementos <code>&lt;ul&gt;</code> e <code>&lt;li&gt;</code>.<br>Nas subpopções de menu em mobile foram encontradas listas estruturadas como <code>&lt;div&gt;</code>. O leitor de ecrã não comunica que é uma lista, nem quantos elementos existem.</li>
+</ul>
+<img src="https://github.com/user-attachments/assets/79b5b516-50e7-4072-9af5-b46250cc0e0b" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+
+<p><em>Figura 1 - Inspect das subopções do menu em mobile revela que as opções estão apenas estruturadas como divs.</em></p>
+<ul>
+<li>O botão que aparece como título desta subopção está a ser lido pelo leitor de ecrã como “Município, botão”. No entanto, a sua função é permitir a ação Voltar, saindo da secção Município, o que pode induzir o utilizador em erro.</li>
+</ul>
+<img src="https://github.com/user-attachments/assets/ff75c0ff-f053-4848-a25c-315e93fcf413" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+
+<p><em>Figura 2 - Inspect do botão "Município" do menu de mobile revela que o texto está dentro do botão.</em></p>
+<h3>Recomendação</h3>
+<ul>
+<li>Devem verificar que todas opções de menu em desktop e mobile estão estruturados como lista, com elementos <code>&lt;ul&gt;&lt;li&gt;</code>.</li>
+<li>Além disso, o botão de voltar deve ter o aria-label ="Voltar" ou aria-label="Sair de Município"-</li>
+<li>Devem também garantir que as subopções de nível 2 em mobile só são apenas lidas quando a subopção é aberta.</li>
+</ul>
+<p>(<a href="https://github.com/unidade-acesso/report_019/issues/4">Ver thread do issue para os erros ainda a corrigir</a>)</p>
+</div>
+              </li></ul>
+</div>
+<h4 class="requirement-title" id="req-chk10-r-3.1">Requisito 3.1 - As células que constituem os cabeçalhos da tabela estão marcadas com o elemento th</h4>
+<div class="requirement-content">
+<p><span class="status-na"><span class="sr-only">etiqueta: </span>N/A</span></p>
+<p>Lista de evidências recolhidas:</p>
+<ul class="evidence-list">
+
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><a href="https://github.com/unidade-acesso/report_019/issues/10" class="issue-link" target="_blank" rel="noopener noreferrer">issue #10</a> <strong>R 3.1 - Não existem tabelas no site, por isso não é aplicável a estrutura de cabeçalhos com &lt;th&gt;</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk 10 web</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 3.1</span><span class="label-tag label-na"><span class="sr-only">etiqueta: </span>N/A</span></div>
+                <div class="issue-content"><h3>Problema</h3>
+<p>No ficheiro Excel das evidências, consideram que a página <a href="https://www.cm-alcobaca.pt/50054/boletim">Boletim</a> contém tabelas, mas apresenta apenas uma lista, não uma estrutura de <code>&lt;table&gt;</code> nem conteúdo que necessite dessa estrutura. </p>
+<h3>Resolução</h3>
+<p>Colocar como "Não aplicável" no Excel dos 10 aspectos funcionais da candidatura, uma vez que parece não existem tabelas no site. </p>
+</div>
+              </li></ul>
+</div>
+<h4 class="requirement-title" id="req-chk10-r-3.2">Requisito 3.2 - A legenda da tabela está marcada com o elemento caption</h4>
+<div class="requirement-content">
+<p><span class="status-na"><span class="sr-only">etiqueta: </span>N/A</span></p>
+<p>Lista de evidências recolhidas:</p>
+<ul class="evidence-list">
+
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><a href="https://github.com/unidade-acesso/report_019/issues/11" class="issue-link" target="_blank" rel="noopener noreferrer">issue #11</a> <strong>R 3.2 - Não existem tabelas no site, por isso não é aplicável a legenda estar marcado com o &lt;caption&gt;</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk 10 web</span><span class="label-tag label-na"><span class="sr-only">etiqueta: </span>N/A</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 3.2</span></div>
+                <div class="issue-content"><h3>Problema</h3>
+<p>No ficheiro Excel das evidências, consideram que a página <a href="https://www.cm-alcobaca.pt/50054/boletim">Boletim</a> contém tabelas, mas apresenta apenas uma lista, não uma estrutura de <code>&lt;table&gt;</code> nem conteúdo que necessite dessa estrutura. </p>
+<h3>Resolução</h3>
+<p>Colocar como "Não aplicável" no Excel dos 10 aspectos funcionais da candidatura, uma vez que parece não existem tabelas no site. </p>
+</div>
+              </li></ul>
+</div>
+<h4 class="requirement-title" id="req-chk10-r-4.1">Requisito 4.1 - Ao clicar com o rato na etiqueta, o cursor surge no respetivo campo de edição</h4>
+<div class="requirement-content">
+<p><span class="status-nok"><span class="sr-only">etiqueta: </span>NOK</span></p>
+<p>Lista de evidências recolhidas:</p>
+<ul class="evidence-list">
+
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><a href="https://github.com/unidade-acesso/report_019/issues/14" class="issue-link" target="_blank" rel="noopener noreferrer">issue #14</a> <strong>Campos de input sem etiqueta (label) e estruturados como outros elementos </strong></p>
+                <div class="evidence-labels"><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk 10 web</span><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 4.1</span></div>
+                <div class="issue-content"><h3>Problema</h3>
+<p>Existem campos de input que não estão estruturados como tal e sem label associada: </p>
+<p><strong>Na<a href="https://www.cm-alcobaca.pt/"> página inicial</a></strong> </p>
+<ul>
+<li>Campo da pesquisa não tem label associada ao campo, e o leitor de ecrã lê a informação do <code>aria-label </code>do input, não do <code>&lt;span&gt;</code> visualmente escondido.</li>
+</ul>
+<img src="https://github.com/user-attachments/assets/d00c9181-02a6-4065-8cc8-c35b98f5a8b1" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+
+<p><em>Figura 1 - HTML do campo da pesquisa</em> </p>
+<ul>
+<li>Campo do email para receber newsletter não tem label associada ao campo, e o leitor de ecrã lê a informação do <code>aria-label</code> do input, não do <code>span</code> visualmente escondido.</li>
+</ul>
+<img src="https://github.com/user-attachments/assets/3b206e90-65b1-4e76-8d57-29fe0a2ae2b7" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+
+<p><em>Figura 2 - HTML do campo do email para receber newsletter</em></p>
+<ul>
+<li>Checkbox dos termos e condições não tem a label associada ao input, porque a label encontra-se numa <code>&lt;div&gt;</code> e o input noutra <code>&lt;div&gt;</code>, quebrando a ligação adjacente do HTML nativo.</li>
+</ul>
+<img src="https://github.com/user-attachments/assets/6f5d54c6-ee53-42ff-afe3-61cabf0df92f" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+
+<p><em>Figura 3 - HTML da checkbox dos termos e condições</em></p>
+<ul>
+<li>Campo de intervalo de datas não está estruturado como campo de input, nem tem uma etiqueta (<code>&lt;label&gt;</code>) associado. Não é possível interagir com esse campo através do teclado e leitor de ecrã.</li>
+</ul>
+<img src="https://github.com/user-attachments/assets/c0b84df9-474c-4f45-833d-38d752bb4891" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+
+<p><em>Figura 4 - HTML do campo de data picker da página inicial</em></p>
+<ul>
+<li>Campo da categoria não está estruturado como uma combobox, mas como botão, não sendo possível navegar corretamente com o leitor de ecrã pela dropdown e compreender as opções que foram selecionadas.</li>
+</ul>
+<img src="https://github.com/user-attachments/assets/c048f0da-30af-41c4-bcfc-07b407e033bc" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+
+<p><em>Figura 5 - HTML do campo da categoria da página inicial</em></p>
+<p><strong>Na página <a href="https://www.cm-alcobaca.pt/agenda">Eventos</a></strong>, os mesmos problemas são encontrados no campo da categoria e intervalo de datas.  </p>
+<img src="https://github.com/user-attachments/assets/ba9aed3d-df4e-4c78-8804-2ec739953e42" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+
+
+<p><em>Figura 6 - HTML do campo da categoria da página Eventos</em></p>
+<img src="https://github.com/user-attachments/assets/156a6422-8bf1-4515-b174-4e73bf21ab01" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+
+
+<p><em>Figura 7 - HTML do campo de intervalo de datas da página Eventos</em></p>
+<h3>Resolução</h3>
+<ul>
+<li><p>Devem garantir que todos os campos de edição, dropdowns, pesquisa, date pickers, são estruturados como <code>&lt;input&gt;</code> e com uma <code>&lt;label&gt;</code>. O<code>for</code>da <code>&lt;label&gt;</code> deve ter o mesmo valor que o <code>id</code> do<code> &lt;input&gt;</code>, para que o leitor de ecrã consiga comunicar a informação da label do campo quando foca no componente, assim como o cursor surgir no respectivo campo de edição quando se clica na etiqueta. </p>
+</li>
+<li><p>No caso do <strong>campo de categoria</strong> devem estruturar como uma <a href="https://www.w3schools.com/tags/att_select_multiple.asp">multi-select combobox</a>. </p>
+</li>
+<li><p>No caso do <strong>campo de intervalo de datas</strong> devem estruturar como um date picker combobox, com uma label associada. Podem seguir o exemplo do elemento <a href="https://www.w3.org/WAI/ARIA/apg/patterns/combobox/examples/combobox-datepicker/">Date Picker Combobox Example da W3C.</a> como referência. </p>
+</li>
+<li><p>No caso da <strong>checkbox</strong>, devem garantir que o input está associado à label. Podem consultar a página <a href="https://www.w3.org/WAI/tutorials/forms/labels/#:~:text=a%20form%20control.-,Associating%20labels%20explicitly,-Whenever%20possible%2C%20use">Labeling Controls - Checkbox da W3C</a> como referência. </p>
+</li>
+<li><p>A label de todos os campos mencionados deve ficar visível e não ser escondida do leitor de ecrã através de <code>&lt;span&gt;</code> ou ser atribuída através de um <code>aria-label</code>. A label estar constantemente visível permite relembrar cognitivamente o que as pessoas estão a inserir nos campos. </p>
+</li>
+<li><p>Não é necessário a label estar fora do campo, quando o campo ainda não tem input inserido, mas quando o input é inserido, a <label> deve mover para cima para ficar visível. </label></p>
+</li>
+<li><p>Não devem utilizar o <code>placeholder</code> do campo como substituto da <code>label</code>.</p>
+</li>
+</ul>
+</div>
+              </li></ul>
+</div>
+<h4 class="requirement-title" id="req-chk10-r-5.2">Requisito 5.2 - O gráfico é acompanhado de uma descrição longa</h4>
+<div class="requirement-content">
+<p><span class="status-na"><span class="sr-only">etiqueta: </span>N/A</span></p>
+<p>Lista de evidências recolhidas:</p>
+<ul class="evidence-list">
+
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><a href="https://github.com/unidade-acesso/report_019/issues/35" class="issue-link" target="_blank" rel="noopener noreferrer">issue #35</a> <strong>R 5.2 - 10 Aspetos</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk 10 web</span><span class="label-tag label-na"><span class="sr-only">etiqueta: </span>N/A</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 5.2</span></div>
+                <div class="issue-content"><blockquote>
+<p>O gráfico é acompanhado de uma descrição longa.<br>– <a href="https://amagovpt.github.io/kit-selo/checklists/checklist-10aspetos#n52">ver requisito 5.2 na lista 10 aspetos</a></p>
+</blockquote>
+</div>
+              </li></ul>
+</div>
+<h4 class="requirement-title" id="req-chk10-r-7.1">Requisito 7.1 - Deve ser possível ativar os botões de controlo do leitor quer com o rato quer com o teclado</h4>
+<div class="requirement-content">
+<p><span class="status-na"><span class="sr-only">etiqueta: </span>N/A</span></p>
+<p>Lista de evidências recolhidas:</p>
+<ul class="evidence-list">
+
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><a href="https://github.com/unidade-acesso/report_019/issues/38" class="issue-link" target="_blank" rel="noopener noreferrer">issue #38</a> <strong>R 7.1 - 10 Aspetos</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk 10 web</span><span class="label-tag label-na"><span class="sr-only">etiqueta: </span>N/A</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 7.1</span></div>
+                <div class="issue-content"><blockquote>
+<p>Deve ser possível ativar os botões de controlo do leitor quer com o rato quer com o teclado.<br>– <a href="https://amagovpt.github.io/kit-selo/checklists/checklist-10aspetos#n71">ver requisito 7.1 na lista 10 aspetos</a></p>
+</blockquote>
+</div>
+              </li></ul>
+</div>
+<h4 class="requirement-title" id="req-chk10-r-7.2">Requisito 7.2 - O vídeo ou o áudio deve conter preferencialmente legendas fechadas sincronizadas. Caso não seja possível, no mínimo, deve disponibilizar-se uma transcrição textual</h4>
+<div class="requirement-content">
+<p><span class="status-na"><span class="sr-only">etiqueta: </span>N/A</span></p>
+<p>Lista de evidências recolhidas:</p>
+<ul class="evidence-list">
+
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><a href="https://github.com/unidade-acesso/report_019/issues/39" class="issue-link" target="_blank" rel="noopener noreferrer">issue #39</a> <strong>R 7.2 - 10 Aspetos</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk 10 web</span><span class="label-tag label-na"><span class="sr-only">etiqueta: </span>N/A</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 7.2</span></div>
+                <div class="issue-content"><blockquote>
+<p>O vídeo ou áudio deve conter preferencialmente legendas fechadas sincronizadas.<br>– <a href="https://amagovpt.github.io/kit-selo/checklists/checklist-10aspetos#n72">ver requisito 7.2 na lista 10 aspetos</a></p>
+</blockquote>
+</div>
+              </li></ul>
+</div>
+<h4 class="requirement-title" id="req-chk10-r-8.4">Requisito 8.4 - Quando se retira a CSS, a informação relevante permanece visível</h4>
+<div class="requirement-content">
+<p><span class="status-nok"><span class="sr-only">etiqueta: </span>NOK</span></p>
+<p>Lista de evidências recolhidas:</p>
+<ul class="evidence-list">
+
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><a href="https://github.com/unidade-acesso/report_019/issues/17" class="issue-link" target="_blank" rel="noopener noreferrer">issue #17</a> <strong>Quando se retira a CSS, a informação relevante não permanece visível</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk 10 web</span><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 8.4</span></div>
+                <div class="issue-content"><h3>Problema</h3>
+<p>Quando se retira a CSS, não aparece visível nenhuma informação sobre o botão das redes sociais, incluindo o seu texto alternativo. </p>
+<img src="https://github.com/user-attachments/assets/e4ea0b49-bc9a-4c18-bcc4-d9e0cd16bc16" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+
+<p><em>Figura 1 - Botões das redes sociais do topo da página sem CSS</em></p>
+<img src="https://github.com/user-attachments/assets/0ce5b204-b80e-419c-9c99-b1f32c6d626d" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+
+<p><em>Figura 2 - Botões das redes sociais abaixo do campo da pesquisa sem CSS</em></p>
+<p>Acontece que o HTML dessas imagens-link estão mal estruturadas, estando uma <code>&lt;div&gt;</code> dentro de um link (<code>&lt;a&gt;</code>). </p>
+<img src="https://github.com/user-attachments/assets/18e4da4f-7d6b-44f3-b522-9eebe5afe3a8" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+
+<p><em>Figura 3 - HTML das imagens - links das redes sociais</em></p>
+<h3>Resolução</h3>
+<p>Remover a <code>&lt;div&gt;</code>, um elemento block, dentro do link (<code>&lt;a&gt;</code>), um elemento inline. Seguir a <a href="https://www.w3schools.com/html/tryit.asp?filename=tryhtml_links_image">construção nativa HTML de um link que contém uma imagem</a>.</p>
+<p>Além disso, garantir que os estilos CSS não estão aplicados a uma <code>&lt;div&gt;</code>, mas à imagem. </p>
+</div>
+              </li></ul>
+</div>
+<h4 class="requirement-title" id="req-chk10-r-10.1">Requisito 10.1 - Nos ficheiros PDF é possível, no mínimo, extrair o conteúdo textual para formato TXT</h4>
+<div class="requirement-content">
+<p><span class="status-nok"><span class="sr-only">etiqueta: </span>NOK</span></p>
+<p>Lista de evidências recolhidas:</p>
+<ul class="evidence-list">
+
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><a href="https://github.com/unidade-acesso/report_019/issues/20" class="issue-link" target="_blank" rel="noopener noreferrer">issue #20</a> <strong>Existem PDFs onde não é possível extrair o conteúdo textual para formato TXT</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk 10 web</span><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 10.1</span></div>
+                <div class="issue-content"><h3>Problema</h3>
+<p>Foram encontrados ficheiros em formato PDF em que não é possível extrair os conteúdos. </p>
+<p>Por exemplo: </p>
+<ul>
+<li>na página <a href="https://www.cm-alcobaca.pt/73328/2026">Ordens de Trabalho / 2026 </a>, o PDF <a href="https://api.cm-alcobaca.pt/uploads/1/8/Municipio/Assembleia/OrdensTrabalho/2026/12-02-2026.pdf">Ordem Trabalhos - 12-02-2026</a>. </li>
+<li>na página <a href="https://www.cm-alcobaca.pt/62259/2025">Ordens de Trabalho / 2025</a>, o PDF <a href="https://api.cm-alcobaca.pt/uploads/1/8/Municipio/Assembleia/OrdensTrabalho/2025/ORDEM%20DE%20TRABALHOS.pdf">Ordem Trabalhos - 12-12-2025</a>.</li>
+<li>na página <a href="https://www.cm-alcobaca.pt/50030/prevencao-da-corrupcao">Prevenção e Corrupção</a>, o PDF<a href="https://api.cm-alcobaca.pt/uploads/1/8/Municipio/Camara/corrupcao/Relatorio%202025_compressed.pdf"> "Relatório Intercalar do Plano de Gestão de Riscos de Corrupção e Infrações Conexas do Município de Alcobaça - outubro 2025"</a></li>
+</ul>
+<h3>Resolução</h3>
+<p>Devem garantir que os ficheiros PDF são otimizados para que seja possível extrair a informação para um processador de texto. Desta forma, garante-se que o texto pode ser lido por leitores de ecrã na ordem correta. No caso de documentos que são fotocópias, contendo apenas imagens, é possível converter os documentos para texto através do <a href="https://www.adobe.com/pt/acrobat/how-to/ocr-software-convert-pdf-to-text.html"></a><a href="https://www.adobe.com/pt/acrobat/how-to/ocr-software-convert-pdf-to-text.html">Reconhecimento Óptico de Caracteres (OCR) da Adobe</a>.</p>
+</div>
+              </li></ul>
+</div>
+
+      </div>
+      <div class="checklist-section">
+        <h3 id="checklist-conteudo">Checklist Conteúdo</h3>
+        <p><span class="status-nok"><span class="sr-only">etiqueta: </span>NOK</span></p>
+        
+      <p><strong>Nível de conformidade:</strong></p>
+        <ul>
+          <li><strong>Checklist Conteúdo</strong>: 87.5% (14/16)
+            <ul>
+              <li>Requisitos avaliados: 17 (1 N/A excluído, 16 aplicáveis)</li>
+              <li>Requisitos OK: 14</li>
+              <li>Requisitos NOK: 2</li>
+              <li>Requisitos N/A: 1</li>
+            </ul>
+          </li>
+        </ul>
+    
+        <h4 class="requirement-title" id="req-conteudo-r-1.1">Requisito 1.1 - O sítio Web apresenta um resumo breve do seu propósito, visível sem se fazer scroll</h4>
+<div class="requirement-content">
+<p><span class="status-nok"><span class="sr-only">etiqueta: </span>NOK</span></p>
+<p>Lista de evidências recolhidas:</p>
+<ul class="evidence-list">
+
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><a href="https://github.com/unidade-acesso/report_019/issues/21" class="issue-link" target="_blank" rel="noopener noreferrer">issue #21</a> <strong>O sítio Web não apresenta um resumo breve do seu propósito</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 1.1</span><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk conteúdo</span><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span></div>
+                <div class="issue-content"><h3>Problema</h3>
+<p>Não existe qualquer resumo do propósito, pelo que deve ser adicionado.</p>
+<img src="https://github.com/user-attachments/assets/0dd3176c-fb52-450a-b76e-90f24174ee52" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+
+<p><em>Figura 1 - Página inicial da CM Alcobaça</em></p>
+<h3>Resolução</h3>
+<p>Como referência de uma boa prática, é possível verificar no website <a href="https://www.acessibilidade.gov.pt/">acessibilidade.gov</a> ou da<a href="https://www.cm-valongo.pt/"> Câmara Municipal de Valongo</a> que o seu propósito está escrito no topo da página.</p>
+</div>
+              </li></ul>
+</div>
+<h4 class="requirement-title" id="req-conteudo-r-1.2">Requisito 1.2 - Os termos mais complexos têm uma definição agregada</h4>
+<div class="requirement-content">
+<p><span class="status-na"><span class="sr-only">etiqueta: </span>N/A</span></p>
+<p>Lista de evidências recolhidas:</p>
+<ul class="evidence-list">
+
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><a href="https://github.com/unidade-acesso/report_019/issues/46" class="issue-link" target="_blank" rel="noopener noreferrer">issue #46</a> <strong>R 1.2 - Conteúdo</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk conteúdo</span><span class="label-tag label-na"><span class="sr-only">etiqueta: </span>N/A</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 1.2</span></div>
+                <div class="issue-content"><blockquote>
+<p>Os termos mais complexos têm uma definição agregada.<br>– <a href="https://amagovpt.github.io/kit-selo/checklists/checklist-conteudo#n12">ver requisito 1.2 na lista Conteúdo</a></p>
+</blockquote>
+</div>
+              </li></ul>
+</div>
+<h4 class="requirement-title" id="req-conteudo-r-4.1">Requisito 4.1 - Os documentos longos têm um índice no topo com hiperligações internas para o mesmo</h4>
+<div class="requirement-content">
+<p><span class="status-nok"><span class="sr-only">etiqueta: </span>NOK</span></p>
+<p>Lista de evidências recolhidas:</p>
+<ul class="evidence-list">
+
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><a href="https://github.com/unidade-acesso/report_019/issues/23" class="issue-link" target="_blank" rel="noopener noreferrer">issue #23</a> <strong>Os documentos longos não têm um índice no topo com hiperligações internas para o mesmo</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk conteúdo</span><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 4.1</span></div>
+                <div class="issue-content"><h3>Problema</h3>
+<p>Nas páginas consideradas longas, como a <a href="https://cm-alcobaca.pt/62247/exposicoes-temporarias">Exposições temporárias</a> não existem um índice com hiperligações para cada secção interna dessa página. </p>
+<img src="https://github.com/user-attachments/assets/4d381d84-284e-44eb-a39d-48618acccf26" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+
+<p><em>Figura 1 - Página Exposições temporárias é uma página longa.</em></p>
+<h3>Resolução</h3>
+<p>Para facilitar a navegação em páginas longas, com várias secções de conteúdos, deve existir um índice no topo da página. Esse índice deve conter hiperligações para as várias seções que existem.</p>
+</div>
+              </li></ul>
+</div>
+
+      </div>
+      <div class="checklist-section">
+        <h3 id="checklist-transacao">Checklist Transação</h3>
+        <p><span class="status-nok"><span class="sr-only">etiqueta: </span>NOK</span></p>
+        
+      <p><strong>Nível de conformidade:</strong></p>
+        <ul>
+          <li><strong>Checklist Transação</strong>: 88.9% (8/9)
+            <ul>
+              <li>Requisitos avaliados: 13 (4 N/A excluídos, 9 aplicáveis)</li>
+              <li>Requisitos OK: 8</li>
+              <li>Requisitos NOK: 1</li>
+              <li>Requisitos N/A: 4</li>
+            </ul>
+          </li>
+        </ul>
+    
+        <h4 class="requirement-title" id="req-transacao-r-1.1">Requisito 1.1 - A sequência de tabulação entre campos segue a sequência de preenchimento</h4>
+<div class="requirement-content">
+<p><span class="status-nok"><span class="sr-only">etiqueta: </span>NOK</span></p>
+<p>Lista de evidências recolhidas:</p>
+<ul class="evidence-list">
+
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><a href="https://github.com/unidade-acesso/report_019/issues/65" class="issue-link" target="_blank" rel="noopener noreferrer">issue #65</a> <strong>A sequência de tabulação no campo das datas e no botão de pesquisa não segue a sequência de preenchimento</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 1.1</span><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk transação</span></div>
+                <div class="issue-content"><blockquote>
+<p>A sequência de tabulação entre campos segue a sequência de preenchimento.<br>– <a href="https://amagovpt.github.io/kit-selo/checklists/checklist-transacao#n11">ver requisito 1.1 na lista Transação</a></p>
+</blockquote>
+<h3>Problema</h3>
+<p><strong>O critério não cumpre porque:</strong> </p>
+<ul>
+<li><strong>Campo de pesquisa no topo do ecrã:</strong> a ordem de navegação entre os elementos não é intuitiva, pois ao clicar no botão da lupa é necessário usar Shift + Tab para retroceder e aceder ao campo de input.</li>
+</ul>
+<img src="https://github.com/user-attachments/assets/4d61abbf-de37-43d7-b04d-7744107e0141" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+
+<ul>
+<li><strong>Campo de input das datas:</strong> não é possível abrir o calendário com o teclado e leitor de ecrã. Se forçarmos o foco no calendário com o rato, a navegação fica restringida apenas aos dois botões de avançar e recuar no mês.</li>
+</ul>
+<img src="https://github.com/user-attachments/assets/8dcbce3d-1004-47a8-ace9-24585aac6524" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+
+<h3>Resolução</h3>
+<ul>
+<li>Após o clique no botão da Pesquisa, mover o foco programaticamente para o input. </li>
+<li>No caso dos campos de intervalo de datas devem estruturar como um date picker combobox, com uma label associada. Podem seguir o exemplo do elemento <a href="https://www.w3.org/WAI/ARIA/apg/patterns/combobox/examples/combobox-datepicker/">Date Picker Combobox Example da W3C.</a> como referência.</li>
+</ul>
+<p>Se optaram por não corrigir este issue, devem evidenciar estes problemas na checklist de Transação na Declaração de Acessibilidade. </p>
+</div>
+              </li></ul>
+</div>
+<h4 class="requirement-title" id="req-transacao-r-1.2">Requisito 1.2 - Os formulários com mais de 2 ecrãs de altura devem ser distribuídos por várias páginas</h4>
+<div class="requirement-content">
+<p><span class="status-na"><span class="sr-only">etiqueta: </span>N/A</span></p>
+<p>Lista de evidências recolhidas:</p>
+<ul class="evidence-list">
+
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><a href="https://github.com/unidade-acesso/report_019/issues/66" class="issue-link" target="_blank" rel="noopener noreferrer">issue #66</a> <strong>R 1.2 - Transação</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk transação</span><span class="label-tag label-na"><span class="sr-only">etiqueta: </span>N/A</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 1.2</span></div>
+                <div class="issue-content"><blockquote>
+<p>Os formulários com mais de 2 ecrãs de altura devem ser distribuídos por várias páginas.<br>– <a href="https://amagovpt.github.io/kit-selo/checklists/checklist-transacao#n12">ver requisito 1.2 na lista Transação</a></p>
+</blockquote>
+</div>
+              </li></ul>
+</div>
+<h4 class="requirement-title" id="req-transacao-r-1.3">Requisito 1.3 - Os formulários com mais de uma página têm a sequência de passos ilustrada</h4>
+<div class="requirement-content">
+<p><span class="status-na"><span class="sr-only">etiqueta: </span>N/A</span></p>
+<p>Lista de evidências recolhidas:</p>
+<ul class="evidence-list">
+
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><a href="https://github.com/unidade-acesso/report_019/issues/67" class="issue-link" target="_blank" rel="noopener noreferrer">issue #67</a> <strong>R 1.3 - Transação</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 1.3</span><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk transação</span><span class="label-tag label-na"><span class="sr-only">etiqueta: </span>N/A</span></div>
+                <div class="issue-content"><blockquote>
+<p>Os formulários com mais de uma página têm a sequência de passos ilustrada.<br>– <a href="https://amagovpt.github.io/kit-selo/checklists/checklist-transacao#n13">ver requisito 1.3 na lista Transação</a></p>
+</blockquote>
+</div>
+              </li></ul>
+</div>
+<h4 class="requirement-title" id="req-transacao-r-2.2">Requisito 2.2 - É usada revelação progressiva em vez de campos inativos</h4>
+<div class="requirement-content">
+<p><span class="status-na"><span class="sr-only">etiqueta: </span>N/A</span></p>
+<p>Lista de evidências recolhidas:</p>
+<ul class="evidence-list">
+
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><a href="https://github.com/unidade-acesso/report_019/issues/69" class="issue-link" target="_blank" rel="noopener noreferrer">issue #69</a> <strong>R 2.2 - Transação</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk transação</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 2.2</span><span class="label-tag label-na"><span class="sr-only">etiqueta: </span>N/A</span></div>
+                <div class="issue-content"><blockquote>
+<p>É usada revelação progressiva em vez de campos inativos.<br>– <a href="https://amagovpt.github.io/kit-selo/checklists/checklist-transacao#n22">ver requisito 2.2 na lista Transação</a></p>
+</blockquote>
+</div>
+              </li></ul>
+</div>
+<h4 class="requirement-title" id="req-transacao-r-4.2">Requisito 4.2 - As ações destrutivas nunca devem ser permanentes; deve ser sempre possível desfazer a operação</h4>
+<div class="requirement-content">
+<p><span class="status-na"><span class="sr-only">etiqueta: </span>N/A</span></p>
+<p>Lista de evidências recolhidas:</p>
+<ul class="evidence-list">
+
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><a href="https://github.com/unidade-acesso/report_019/issues/85" class="issue-link" target="_blank" rel="noopener noreferrer">issue #85</a> <strong>R 4.2 - Transação</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk transação</span><span class="label-tag label-na"><span class="sr-only">etiqueta: </span>N/A</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 4.2</span></div>
+                <div class="issue-content"><blockquote>
+<p>As ações destrutivas nunca devem ser permanentes, deve ser sempre possível desfazer a operação.<br>– <a href="https://amagovpt.github.io/kit-selo/checklists/checklist-transacao#n42">ver requisito 4.2 na lista Transação</a></p>
+</blockquote>
+</div>
+              </li></ul>
+</div>
+
+      </div></section>
+
+    <section id="etiquetas" class="mb-5 report-section">
+      <h2>Significado das etiquetas utilizadas</h2>
+      <ul>
+        <li><span class="label-tag label-ok"><span class="sr-only">etiqueta: </span>OK</span> - status OK</li>
+        <li><span class="label-tag label-melhoria"><span class="sr-only">etiqueta: </span>melhoria</span> - status OK, mas pode melhorar</li>
+        <li><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span> - status Not OK</li>
+        <li><span class="label-tag label-na"><span class="sr-only">etiqueta: </span>N/A</span> - status Não Aplicável</li>
+        <li><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk10 web</span> - checklist 10 Aspetos críticos de acessibilidade funcional</li>
+        <li><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk conteúdo</span> - checklist Conteúdo</li>
+        <li><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk transação</span> - checklist Transação</li>
+        <li><span class="label-tag label-outras"><span class="sr-only">etiqueta: </span>outras violações</span> - permite construir o subcapítulo "Outras violações", o qual integra o capítulo "Avaliações manuais"</li>
+        <li><span class="label-tag label-declaracao"><span class="sr-only">etiqueta: </span>dec a11y</span> - permite construir o capítulo "Declaração de acessibilidade e usabilidade"</li>
+        <li><span class="label-tag label-auto"><span class="sr-only">etiqueta: </span>av auto</span> - permite construir o capítulo "Avaliação automática"</li>
+        <li><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>testes usabilidade</span> - permite construir o capítulo "Testes de usabilidade"</li>
+      </ul>
+    </section>
+
+  </div>
+  <footer class="report-footer">
+    <p>© 2026 ARTE - Agência para a Reforma Tecnológica do Estado, I.P. Todos os Direitos Reservados.</p>
+    <p><em lang="en">GitReports v1.0</em> - relatório gerado automaticamente a partir dos <em lang="en">issues</em> do GitHub</p>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
