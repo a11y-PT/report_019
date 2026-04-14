@@ -19,13 +19,13 @@ status: "Concluído - Selo atribuído"      # Entre as aspas escreve o status do
 
 ## Relatório de Auditoria
 
-Consulte aqui a última atualização: [Relatório do Site Autárquico - Câmara de Alcobaça](relatorio_report_019.html)
+Consulte aqui a última atualização: [Relatório {{ page.website }}](report.html)
 
 <details>
   <summary>Histórico de atualizações</summary>
   <ul aria-label="lista de relatórios já efetuados">
-    <li><a href="23032026_relatorio_report_019.html">(23/03/2026) Site Autárquico - Câmara Alcobaça</a></li>
-    <li><a href="17032026_relatorio_report_019.html">(17/03/2026) Site Autárquico - Câmara Alcobaça</a></li>
-    <li><a href="09032026_relatorio_report_019.html">(09/03/2026) Site Autárquico - Câmara Alcobaça</a></li>
+    <li><a href="23032026_report.html">(23/03/2026). Relatório {{ page.website }}</a></li>
+    <li><a href="17032026_report.html">(17/03/2026). Relatório {{ page.website }}</a></li>
+    <li><a href="09032026_report.html">(09/03/2026). Relatório {{ page.website }}</a></li>
   </ul>
 </details>
