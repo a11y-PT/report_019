@@ -8,13 +8,14 @@ validity: "27-03-2026 a 27-03-2027"    # Entre as aspas escreve o período de 1 
 status: "Concluído - Selo atribuído"      # Entre as aspas escreve o status do relatório
 ---
 
-# Sítio Autárquico - Câmara Municipal de Alcobaça
+# {{ page.website }} 
 
-- Data de criação: 24/02/2026
-- URL: https://www.cm-alcobaca.pt/
-- Propriedade: CM Alcobaça
-- Candidatura: Prata
-- Validade do Selo: 27-03-2026 a 27-03-2027
+- Data de criação: {{ page.date }}
+- URL: {{ page.uri }} 
+- Propriedade: {{ page.owner }}
+- Candidatura: {{ page.seal }}
+- Validade do Selo: {{ page.validity }}
+- Estado: {{ page.status }}
 
 ## Relatório de Auditoria
 
