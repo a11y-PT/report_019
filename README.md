@@ -27,5 +27,6 @@ Consulte aqui a última atualização: [Relatório {{ page.website }}](report.ht
     <li><a href="23032026_report.html">(23/03/2026). Relatório {{ page.website }}</a></li>
     <li><a href="17032026_report.html">(17/03/2026). Relatório {{ page.website }}</a></li>
     <li><a href="09032026_report.html">(09/03/2026). Relatório {{ page.website }}</a></li>
+    <li><a href="24022026_report.html">(24/02/2026). Relatório {{ page.website }}</a></li>
   </ul>
 </details>
