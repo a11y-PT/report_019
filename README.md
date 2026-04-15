@@ -22,7 +22,7 @@ Sítio Web: {{ page.website }}
 
 ## Relatório {{ page.website }}
 
-O presente relatório resultou da auditoria da informação publicada na [{{ page.a11y_statement }}](Declaração de Acessibilidade e Usabilidade).
+O presente relatório resultou da auditoria da informação publicada na [Declaração de Acessibilidade e Usabilidade]({{ page.a11y_statement }}).
 
 Consulte aqui a última atualização: [Relatório {{ page.website }}](report.html)
 
