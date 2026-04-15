@@ -3,6 +3,7 @@ website: "Sítio Autárquico - Câmara Municipal de Alcobaça"          # Entre 
 date: "24/02/2026"                    # Entre as aspas escreve a data de criação do 1º relatório. Os restantes estão no histórico
 uri: "https://www.cm-alcobaca.pt/"   # Entre as aspas escreve o domínio do website
 owner: "CM Alcobaça"         # Entre as aspas escrever o nome do owner do website
+a11y_statement: "https://www.cm-alcobaca.pt/acessibilidade"
 seal: "Prata"                          # Entre as aspas escreve Bronze, Prata ou Ouro
 validity: "27-03-2026 a 27-03-2027"    # Entre as aspas escreve o período de 1 ano de validade do Selo
 status: "Concluído - Selo atribuído"      # Entre as aspas escreve o status do relatório
@@ -19,7 +20,9 @@ Sítio Web: {{ page.website }}
 - Validade do Selo: {{ page.validity }}
 - Estado: {{ page.status }}
 
-## Relatório de Auditoria
+## Relatório {{ page.website }}
+
+O presente relatório resultou da auditoria da informação publicada na [{{ page.a11y_statement }}](Declaração de Acessibilidade e Usabilidade).
 
 Consulte aqui a última atualização: [Relatório {{ page.website }}](report.html)
 
