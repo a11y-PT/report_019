@@ -9,8 +9,7 @@ validity: "27-03-2026 a 27-03-2027"    # Entre as aspas escreve o período de 1 
 status: "Concluído - Selo atribuído"      # Entre as aspas escreve o status do relatório
 ---
 
-# Candidatura ao Selo de Usabilidade e Acessibilidade
-
+# Relatório de auditoria
 Sítio Web: {{ page.website }} 
 
 - Data de criação: {{ page.date }}
